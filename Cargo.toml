@@ -1,0 +1,18 @@
+[package]
+name = "image-conversion"
+authors = ["Thorsten Hans <thorsten.hans@gmail.com>"]
+description = "Dynamic image processing and transcoding at the edge"
+version = "0.1.0"
+rust-version = "1.93"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1"
+bytes = "1"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp"] }
+spin-sdk = "7.0.0"
+
+[workspace]

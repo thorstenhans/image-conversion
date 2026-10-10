@@ -1,0 +1,18 @@
+spin_manifest_version = 2
+
+[application]
+name = "image-conversion"
+version = "0.1.0"
+authors = ["Thorsten Hans <thorsten.hans@gmail.com>"]
+description = "Dynamic image processing and transcoding at the edge"
+
+[[trigger.http]]
+route = "/..."
+component = "image-conversion"
+
+[component.image-conversion]
+source = "target/wasm32-wasip2/release/image_conversion.wasm"
+allowed_outbound_hosts = []
+[component.image-conversion.build]
+command = "cargo build --target wasm32-wasip2 --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
